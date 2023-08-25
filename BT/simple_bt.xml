@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <ReactiveSequence>
+            <ReactiveFallback>
+                <Condition ID="CustomCondition" Value="10" name="BatteryLevel"/>
+                <Action ID="AlwaysRunning" name="StopAndWait"/>
+            </ReactiveFallback>
+            <Action ID="CustomAction" name="GoToDestination"/>
+        </ReactiveSequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="AlwaysRunning"/>
+        <Action ID="CustomAction"/>
+        <Condition ID="CustomCondition">
+            <input_port default="10" name="Value"/>
+        </Condition>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
+
