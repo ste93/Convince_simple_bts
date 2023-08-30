@@ -2,20 +2,25 @@
 <root main_tree_to_execute="BehaviorTree">
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
-        <ReactiveSequence>
-            <ReactiveFallback>
-                <Condition ID="CustomCondition" Value="10" name="BatteryLevel"/>
-                <Action ID="AlwaysRunning" name="StopAndWait"/>
+
+        <!-- <ReactiveSequence> -->
+            <ReactiveFallback> 
+                <Condition ID="YARPCondition" name="BatteryLevel" port_name="BatteryLevelSkill" carrier=""/>
+               <Action ID="AlwaysRunning" name="StopAndWait"/>
             </ReactiveFallback>
-            <Action ID="CustomAction" name="GoToDestination"/>
-        </ReactiveSequence>
+             <!-- <Action ID="YARPAction" name="GoToDestination" port_name="GoToDestinationSkill" carrier="" />-->
+        <!-- </ReactiveSequence>  -->
     </BehaviorTree>
     <!-- ////////// -->
     <TreeNodesModel>
         <Action ID="AlwaysRunning"/>
-        <Action ID="CustomAction"/>
-        <Condition ID="CustomCondition">
-            <input_port default="10" name="Value"/>
+        <Action ID="YARPAction">
+            <input_port name="port_name" type="std::string"/>
+            <input_port name="carrier" type="std::string"/>
+        </Action>
+        <Condition ID="YARPCondition">
+            <input_port name="port_name" type="std::string"/>
+            <input_port name="carrier" type="std::string"/>
         </Condition>
     </TreeNodesModel>
     <!-- ////////// -->

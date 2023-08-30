@@ -1,0 +1,4 @@
+add_subdirectory(BT_protocol)
+add_subdirectory(BT)
+add_subdirectory(BatteryLevelSkill)
+add_subdirectory(StopAndWaitSkill)

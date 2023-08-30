@@ -1,0 +1,15 @@
+<scxml 
+  initial="idle" 
+  version="1.0" 
+  name="StopAndWaitSM"
+  xmlns="http://www.w3.org/2005/07/scxml">
+
+    <state id="idle">
+        <transition event="CMD_START" target="wait" />
+    </state>
+
+    <state id="wait">
+        <transition event="CMD_OK" target="idle" />
+    </state>
+</scxml>
+
