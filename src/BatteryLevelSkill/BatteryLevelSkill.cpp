@@ -54,7 +54,7 @@ SkillAck BatteryLevelSkill::request_ack()
             }
             if (state == "success") {
                 stateMachine.submitEvent("CMD_OK");
-                return SKILL_FAILURE; // TODO remove
+                return SKILL_SUCCESS;
             }
             if (state == "failure") {
                 stateMachine.submitEvent("CMD_OK");

@@ -1,6 +1,4 @@
 add_subdirectory(BTProtocol)
 add_subdirectory(BT)
 add_subdirectory(BatteryLevelSkill)
-add_subdirectory(StopAndWaitSkill)
-add_subdirectory(GoToProtocol)
-add_subdirectory(IsAtSkill)
+add_subdirectory(AlarmBatteryLow)

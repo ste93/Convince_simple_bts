@@ -1,7 +1,7 @@
 <scxml 
   initial="idle" 
   version="1.0" 
-  name="BatteryLevelSkill2"
+  name="BatteryLevelSkillSM"
   datamodel="cplusplus:BatteryLevelDataModel:BatteryLevelDataModel.h"
   xmlns="http://www.w3.org/2005/07/scxml">
 

@@ -12,13 +12,13 @@
 #include <yarp/os/RpcServer.h>
 #include <yarp/os/Network.h>
 
-#include "StopAndWaitSM.h"
+#include "AlarmBatteryLowSM.h"
 
-class StopAndWaitSkill:
+class AlarmBatteryLowSkill:
         public Skill_request
 {
 public:
-    StopAndWaitSkill(std::string name );
+    AlarmBatteryLowSkill(std::string name );
 
     bool start();
 
@@ -30,5 +30,5 @@ private:
     std::string name;
     yarp::os::Network yarpnet;
     yarp::os::RpcServer port;
-    StopAndWaitSM stateMachine;
+    AlarmBatteryLowSM stateMachine;
 };

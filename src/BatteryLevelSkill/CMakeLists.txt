@@ -19,4 +19,4 @@ target_link_libraries(${project-name} PRIVATE ${YARP_LIBRARIES} Qt6::Core Qt6::S
 
 target_sources(${project-name} PUBLIC main.cpp BatteryLevelDataModel.h BatteryLevelDataModel.cpp BatteryLevelSkill.cpp BatteryLevelSkill.h)
 
-qt6_add_statecharts(${project-name} BatteryLevelSkill2.scxml)
+qt6_add_statecharts(${project-name} BatteryLevelSkillSM.scxml)

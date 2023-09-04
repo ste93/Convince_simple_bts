@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-set (project-name StopAndWaitSkill)
+set (project-name AlarmBatteryLowSkill)
 project (${project-name})
 
 #find_package(YARP COMPONENTS os REQUIRED)
@@ -17,6 +17,6 @@ file(GLOB_RECURSE COMMON_SOURCE "*.h" "*.cpp")
 
 target_link_libraries(${project-name} PRIVATE ${YARP_LIBRARIES} Qt6::Core Qt6::Scxml Qt6::StateMachine BT_protocol)
 
-target_sources(${project-name} PUBLIC main.cpp StopAndWaitSkill.cpp StopAndWaitSkill.h)
+target_sources(${project-name} PUBLIC main.cpp AlarmBatteryLowSkill.cpp AlarmBatteryLowSkill.h)
 
-qt6_add_statecharts(${project-name} StopAndWaitSM.scxml)
+qt6_add_statecharts(${project-name} AlarmBatteryLowSM.scxml)

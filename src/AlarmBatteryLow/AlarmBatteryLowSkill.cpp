@@ -5,21 +5,20 @@
  *                                                                            *
  ******************************************************************************/
 
-#include "IsAtSkill.h"
+#include "AlarmBatteryLowSkill.h"
 
 #include <QTimer>
 #include <QDebug>
 #include <QTime>
 #include <QStateMachine>
 
-IsAtSkill::IsAtSkill(std::string name , const std::string location) :
-        name(std::move(name)),
-        dataModel(std::move(location))
+AlarmBatteryLowSkill::AlarmBatteryLowSkill(std::string name ) :
+        name(std::move(name))
 {
-    stateMachine.setDataModel(&dataModel);
+    //stateMachine.setDataModel(&dataModel);
 }
 
-bool IsAtSkill::start()
+bool AlarmBatteryLowSkill::start()
 {
     if (!yarp::os::NetworkBase::checkNetwork()) {
         qWarning("Error! YARP Network is not initialized");
@@ -41,37 +40,24 @@ bool IsAtSkill::start()
     return true;
 }
 
-SkillAck IsAtSkill::request_ack()
+SkillAck AlarmBatteryLowSkill::request_ack()
 {
     while (true) {
         for (const auto& state : stateMachine.activeStateNames()) {
-            if (state == "idle") {
+            if (state == "wait") {
                 stateMachine.submitEvent("CMD_OK");
-                return SKILL_IDLE;
+                return SKILL_RUNNING;
             }
-            if (state == "get") {
-                stateMachine.submitEvent("CMD_OK");
-                return SKILL_IDLE;
-            }
-            if (state == "success") {
-                stateMachine.submitEvent("CMD_OK");
-                return SKILL_SUCCESS;
-            }
-            if (state == "failure") {
-                stateMachine.submitEvent("CMD_OK");
-                return SKILL_FAILURE;
-            }
-
         }
     }
 }
 
-void IsAtSkill::send_start()
+void AlarmBatteryLowSkill::send_start()
 {
     stateMachine.submitEvent("CMD_START");
 }
 
-void IsAtSkill::send_stop()
+void AlarmBatteryLowSkill::send_stop()
 {
     stateMachine.submitEvent("CMD_STOP",  QStateMachine::HighPriority);
 }

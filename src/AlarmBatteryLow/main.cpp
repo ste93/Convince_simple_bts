@@ -4,7 +4,7 @@
 
 
 #include <iostream>
-#include "StopAndWaitSkill.h"
+#include "AlarmBatteryLowSkill.h"
 
 #include <thread>
 #include <chrono>
@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
   QCoreApplication app(argc, argv);
-  StopAndWaitSkill stateMachine("StopAndWait");
+  AlarmBatteryLowSkill stateMachine("AlarmBatteryLow");
   stateMachine.start();
 
   int ret=app.exec();

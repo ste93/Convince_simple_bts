@@ -12,7 +12,7 @@
 #include <yarp/os/RpcServer.h>
 #include <yarp/os/Network.h>
 
-#include "BatteryLevelSkill2.h"
+#include "BatteryLevelSkillSM.h"
 #include "BatteryLevelDataModel.h"
 
 class BatteryLevelSkill:
@@ -32,5 +32,5 @@ private:
     yarp::os::Network yarpnet;
     yarp::os::RpcServer port;
     BatteryLevelDataModel dataModel;
-    BatteryLevelSkill2 stateMachine;
+    BatteryLevelSkillSM stateMachine;
 };
