@@ -3,7 +3,7 @@
 <robot name="FakeBattery" prefix="FakeBattery" xmlns:xi="http://www.w3.org/2001/XInclude">
    <devices>
         <device name="battery1" type="battery_nws_yarp">
-            <param name="period">   20                  </param>
+            <param name="period">   2                  </param>
             <param name="name">   /battery_nws       </param>
 
             <action phase="startup" level="5" type="attach">
@@ -17,7 +17,7 @@
 
         <device name="my_battery" type="fakeBattery">
             <param name="charge">   100                  </param>
-            <param name="period">   20                  </param>
+	    <param name="thread_period">   0.02                  </param> <!--it discharge 1% every second --> 
 
         </device>
 
