@@ -1,4 +1,4 @@
 add_subdirectory(BTProtocol)
 add_subdirectory(BT)
 add_subdirectory(BatteryLevelSkill)
-add_subdirectory(AlarmBatteryLow)
+add_subdirectory(AlarmBatteryLowSkill)
