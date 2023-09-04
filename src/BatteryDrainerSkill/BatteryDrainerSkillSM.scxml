@@ -1,0 +1,30 @@
+<scxml 
+  initial="idle" 
+  version="1.0" 
+  name="BatteryDrainerSkillSM"
+  datamodel="cplusplus:BatteryDrainerDataModel:BatteryDrainerDataModel.h"
+  xmlns="http://www.w3.org/2005/07/scxml">
+
+    <state id="drain">
+        <onentry>
+            <script>
+                m_ibattery->getBatteryCharge(m_level);
+                if (fakeBatteryRPC.getOutputCount()>0)
+                {
+                    yarp::os::Bottle cmd;
+                    yarp::os::Bottle reply;
+                    cmd.addVocab32("setBatteryCharge");
+                    cmd.addFloat64(m_level-2.0);
+                    fakeBatteryRPC.write(cmd,reply);
+                }
+            </script>
+        </onentry>
+        <transition target="idle"/>
+    </state>
+
+    <state id="idle">
+        <transition event="CMD_START" target="drain" />
+    </state>
+    
+</scxml>
+
