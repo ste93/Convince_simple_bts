@@ -9,6 +9,7 @@
 
 #include <QTimer>
 #include <QDebug>
+#include <QtDebug>
 #include <QTime>
 #include <QStateMachine>
 
@@ -44,11 +45,16 @@ SkillAck BatteryDrainerSkill::request_ack()
 {
     while (true) {
         for (const auto& state : stateMachine.activeStateNames()) {
+
+
             if (state == "drain") {
+                stateMachine.submitEvent("CMD_OK");
                 return SKILL_RUNNING;
             }
             if (state == "idle") {
+                stateMachine.submitEvent("CMD_OK");
                 return SKILL_IDLE;
+
             }
         }
     }
@@ -56,6 +62,7 @@ SkillAck BatteryDrainerSkill::request_ack()
 
 void BatteryDrainerSkill::send_start()
 {
+    qWarning("sending start");
     stateMachine.submitEvent("CMD_START");
 }
 

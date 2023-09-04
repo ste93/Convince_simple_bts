@@ -9,17 +9,20 @@
         <onentry>
             <script>
                 m_ibattery->getBatteryCharge(m_level);
+
                 if (fakeBatteryRPC.getOutputCount()>0)
                 {
                     yarp::os::Bottle cmd;
                     yarp::os::Bottle reply;
                     cmd.addVocab32("setBatteryCharge");
-                    cmd.addFloat64(m_level-2.0);
+                    cmd.addFloat64(m_level-5);
                     fakeBatteryRPC.write(cmd,reply);
+                    qWarning("draining");
+
                 }
             </script>
         </onentry>
-        <transition target="idle"/>
+        <transition event="CMD_OK" target="idle"/>
     </state>
 
     <state id="idle">

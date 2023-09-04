@@ -4,10 +4,10 @@
     <BehaviorTree ID="BehaviorTree">
         <ReactiveSequence>
             <ReactiveFallback>
-                <Condition ID="YARPCondition" carrier="" name="BatteryLevel " port_name="BatteryLevelSkill"/>
+                <Condition ID="YARPCondition" carrier="tcp" name="BatteryLevel" port_name="BatteryLevel"/>
                 <Action ID="AlwaysRunning" name="Alarm"/>
             </ReactiveFallback>
-            <Action ID="YARPAction" carrier="" name="DrainBattery" port_name=""/>
+            <Action ID="YARPAction" carrier="tcp" name="BatteryDrainer" port_name="BatteryDrainer"/>
         </ReactiveSequence>
     </BehaviorTree>
     <!-- ////////// -->
