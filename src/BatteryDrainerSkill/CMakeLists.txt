@@ -15,7 +15,7 @@ add_executable(${project-name} )
 file(GLOB_RECURSE COMMON_SOURCE "*.h" "*.cpp")
 
 
-target_link_libraries(${project-name} PRIVATE ${YARP_LIBRARIES} Qt6::Core Qt6::Scxml Qt6::StateMachine BT_protocol)
+target_link_libraries(${project-name} PRIVATE ${YARP_LIBRARIES} Qt6::Core Qt6::Scxml Qt6::StateMachine BT_protocol BatteryDrainerService)
 
 target_sources(${project-name} PUBLIC main.cpp BatteryDrainerDataModel.h BatteryDrainerDataModel.cpp BatteryDrainerSkill.cpp BatteryDrainerSkill.h)
 

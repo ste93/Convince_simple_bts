@@ -19,6 +19,8 @@
 #include <yarp/os/Property.h>
 #include <yarp/dev/IBattery.h>
 #include <yarp/os/RpcClient.h>
+#include <BatteryDrainerService.h>
+
  
 
 struct Connector
@@ -54,15 +56,10 @@ public:
     BatteryDrainerDataModel() = default;
 
     bool setup(const QVariantMap& initialDataValues) override;
+    BatteryDrainerService batteryDrainerService;
+    yarp::os::RpcClient client_port_batteryDrainerService;
 
     yarp::os::Network m_yarp;
-    yarp::dev::PolyDriver m_polyDriver_battery_nwc_yarp;
-    yarp::os::Property m_property_battery_nwc_yarp;
-    yarp::dev::IBattery* m_ibattery{nullptr};
-    yarp::os::RpcClient fakeBatteryRPC;
-
-    double m_level { 100.0 };
-    
 };
 
 Q_DECLARE_METATYPE(::BatteryDrainerDataModel*)

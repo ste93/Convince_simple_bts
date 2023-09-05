@@ -22,28 +22,27 @@ bool BatteryDrainerDataModel::setup(const QVariantMap &initialDataValues)
         return false;
     }
 
-    m_property_battery_nwc_yarp.put("device", "battery_nwc_yarp");
-    m_property_battery_nwc_yarp.put("remote", "/battery_nws");
-    m_property_battery_nwc_yarp.put("local", "/battery_drainer_nwc");
-
-    // open ports
-
-    if (!m_polyDriver_battery_nwc_yarp.open(m_property_battery_nwc_yarp)) {
-        qWarning("Error! m_polyDriver_battery_nwc_yarp.open(m_property_battery_nwc_yarp)" );
+    if (!client_port_batteryDrainerService.open("/BatteryDrainerSkillRpc:o")) {
+        qWarning("Error! Cannot open YARP port with command: client_port_batteryDrainerService.open(/BatteryDrainerSkillRpc:o) " );
         return false;
     }
 
     // attach services as clients
 
-    if(!m_polyDriver_battery_nwc_yarp.view(m_ibattery)) {
-        qWarning("Error! m_polyDriver_battery_nwc_yarp.view(m_ibattery)"  );
+    if(!batteryDrainerService.yarp().attachAsClient(client_port_batteryDrainerService)) {
+        qWarning("Error! Could not attach as client with command : batteryDrainerService.yarp().attachAsClient(client_port_batteryDrainerService) "  );
         return false;
     }
 
-    if (!fakeBatteryRPC.open("/battery_drainer/fakeBatteryRPC")){
-        qWarning("Error! fakeBatteryRPC.open /battery_drainer/fakeBatteryRPC"  );
+
+    // open connections to components
+
+    if (!yarp::os::Network::connect(client_port_batteryDrainerService.getName(), "/BatteryDrainerComponent", "tcp")) {
+        qWarning("Error! Could not connect to server : /BatteryComponent " );
         return false;
     }
+
+
 
     return true;
 }

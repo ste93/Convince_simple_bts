@@ -8,18 +8,7 @@
     <state id="drain">
         <onentry>
             <script>
-                m_ibattery->getBatteryCharge(m_level);
-
-                if (fakeBatteryRPC.getOutputCount()>0)
-                {
-                    yarp::os::Bottle cmd;
-                    yarp::os::Bottle reply;
-                    cmd.addVocab32("setBatteryCharge");
-                    cmd.addFloat64(m_level-5);
-                    fakeBatteryRPC.write(cmd,reply);
-                    qWarning("draining");
-
-                }
+                batteryDrainerService.drain();
             </script>
         </onentry>
         <transition event="CMD_OK" target="idle"/>
