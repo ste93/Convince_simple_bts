@@ -1,7 +1,0 @@
-add_subdirectory(BTProtocol)
-add_subdirectory(BT)
-add_subdirectory(BatteryLevelSkill)
-add_subdirectory(AlarmBatteryLowSkill)
-add_subdirectory(BatteryDrainerSkill)
-add_subdirectory(BatteryDrainerProtocol)
-add_subdirectory(BatteryDrainerComponent)
