@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <ReactiveSequence>
+            <ReactiveFallback>
+                <Condition ID="ROS2Condition"  name="BatteryLevel" nodeName="BatteryLevelNodeRos2" topicName="/batteryLevelSkillTopicName" interface="service" />
+                <Action ID="ROS2Action" name="Alarm" nodeName="AlarmNodeRos2" topicName="/alarmSkillTopicName" interface="service"/>
+            </ReactiveFallback>
+            <Action ID="ROS2Action" name="BatteryDrainer" nodeName="BatteryDrainerNodeRos2" topicName="/batteryDrainerSkillTopicName" interface="service"/>
+        </ReactiveSequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <!-- <Action ID="AlwaysRunning"/> -->
+        <Action ID="ROS2Action">
+            <input_port name="nodeName" type="std::string"/>
+            <input_port name="topicName" type="std::string"/>
+            <input_port name="interface" type="std::string"/>
+        </Action>
+        <Condition ID="ROS2Condition">
+            <input_port name="nodeName" type="std::string"/>
+            <input_port name="topicName" type="std::string"/>
+            <input_port name="interface" type="std::string"/>
+        </Condition>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
