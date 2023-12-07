@@ -18,12 +18,19 @@ public:
 
     bool open()
     {
+        if(!rclcpp::ok())
+        {
+            rclcpp::init(/*argc*/ 0, /*argv*/ nullptr);
+        }
+
         m_node = rclcpp::Node::make_shared("BatteryDrainerComponentNode");
-        m_drainService = m_node->create_service<other_interfaces::srv::RpcWithoutParameters>("BatteryDrainerComponent/drain",  
+        m_drainService = m_node->create_service<other_interfaces::srv::RpcWithoutParameters>("/BatteryDrainerComponent/Drain",  
                                                                                     std::bind(&BatteryDrainerComponent::drain,
                                                                                     this,
                                                                                     std::placeholders::_1,
                                                                                     std::placeholders::_2));
+        RCLCPP_DEBUG(m_node->get_logger(), "BatteryDrainerComponent::start");
+        std::cout << "BatteryDrainerComponent::start";        
         return true;
 
 
@@ -45,13 +52,13 @@ public:
     {
         //m_ibattery->getBatteryCharge(m_level);
         
-        std::cout <<"draining" << m_level;  
+        std::cout <<"draining";  
 
     }
 
 private:
-    double m_level { 100.0 };
-    std::shared_ptr<rclcpp::Node> m_node;
+    //double m_level { 100.0 };
+    rclcpp::Node::SharedPtr m_node;
     rclcpp::Service<other_interfaces::srv::RpcWithoutParameters>::SharedPtr m_drainService;
 
 };
