@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
   QCoreApplication app(argc, argv);
-  AlarmBatteryLowSkill stateMachine("AlarmBatteryLow");
+  AlarmBatteryLowSkill stateMachine("AlarmBatteryLowSkill");
   stateMachine.start();
 
   int ret=app.exec();
