@@ -14,8 +14,10 @@ find_package(sensor_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(other_interfaces
 "srv/RpcWithoutParameters.srv"
-"srv/SetBatteryVoltage.srv"
-LIBRARY_NAME other_interfaces
+"srv/SetBatteryStatus.srv" 
+"srv/BatteryStatusSet.srv" 
+DEPENDENCIES sensor_msgs
+LIBRARY_NAME other_interfaces 
 )
 ament_export_dependencies( sensor_msgs)
 
