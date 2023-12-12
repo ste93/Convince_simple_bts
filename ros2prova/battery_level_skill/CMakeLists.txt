@@ -34,6 +34,10 @@ target_sources( ${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/include/BatteryLevelSkill.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/BatteryLevelDataModel.cpp 
   ${CMAKE_CURRENT_SOURCE_DIR}/include/BatteryLevelDataModel.h)
+
+
+install(TARGETS ${PROJECT_NAME}
+DESTINATION lib/${PROJECT_NAME})
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

@@ -20,6 +20,10 @@ add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp )
 ament_target_dependencies(${PROJECT_NAME} bt_nodes bt_interfaces rclcpp behaviortree_cpp_v3)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/../BT/simple_bt.xml simple_bt.xml COPYONLY)
 
+
+install(TARGETS ${PROJECT_NAME}
+DESTINATION lib/${PROJECT_NAME})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
