@@ -20,8 +20,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 LIBRARY_NAME ${PROJECT_NAME}
 )
 
-install(TARGETS ${PROJECT_NAME}
-DESTINATION lib/${PROJECT_NAME})
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
