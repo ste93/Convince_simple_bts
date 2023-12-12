@@ -86,8 +86,16 @@ private:
 };
 
 
-int main()
+int main(int argc, char* argv[])
 {
+    std::cout << argc;
+    if(!rclcpp::ok())
+    {
+        rclcpp::init(/*argc*/ argc, /*argv*/ argv);
+    }
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("rclcpp"), "count "<< argc << argv[0] << argv[1] << argv[2]);
+    RCLCPP_DEBUG_STREAM(rclcpp::get_logger("rclcpp"), "count "<< argc << argv[0] << argv[1] << argv[2]);
+
     BehaviorTreeFactory bt_factory;
     bt_factory.registerNodeType<ROS2Action>("ROS2Action");
     bt_factory.registerNodeType<ROS2Condition>("ROS2Condition");
@@ -95,7 +103,7 @@ int main()
 
    // bt_factory.registerNodeType<FlipFlopCondition>("FlipFlopCondition");
 
-    BT::Tree tree = bt_factory.createTreeFromFile("./simple_bt.xml");
+    BT::Tree tree = bt_factory.createTreeFromFile(argv[1]);
 
 
     // Create some logger

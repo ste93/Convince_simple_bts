@@ -16,12 +16,14 @@ class BatteryDrainerComponent
 public:
     BatteryDrainerComponent() = default;
 
-    bool open()
+    bool start(int argc, char*argv[])
     {
+
         if(!rclcpp::ok())
         {
-            rclcpp::init(/*argc*/ 0, /*argv*/ nullptr);
+            rclcpp::init(/*argc*/ argc, /*argv*/ argv);
         }
+
 
         m_node = rclcpp::Node::make_shared("BatteryDrainerComponentNode");
         m_drainService = m_node->create_service<other_interfaces::srv::RpcWithoutParameters>("/BatteryDrainerComponent/Drain",  

@@ -28,12 +28,12 @@ void BatteryLevelSkill::spin(std::shared_ptr<rclcpp::Node> node)
 }
 
 
-bool BatteryLevelSkill::start()
+bool BatteryLevelSkill::start(int argc, char*argv[])
 {
 
     if(!rclcpp::ok())
     {
-        rclcpp::init(/*argc*/ 0, /*argv*/ nullptr);
+        rclcpp::init(/*argc*/ argc, /*argv*/ argv);
     }
 
     m_node = rclcpp::Node::make_shared(m_name);

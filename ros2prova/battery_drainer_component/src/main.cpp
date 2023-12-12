@@ -1,9 +1,9 @@
 #include "BatteryDrainerComponent.cpp"
-int main()
+int main(int argc, char *argv[])
 {
 
     BatteryDrainerComponent batteryDrainerComponent;
-    if (!batteryDrainerComponent.open()) {
+    if (!batteryDrainerComponent.start(argc, argv)) {
         return 1;
     }
     batteryDrainerComponent.spin();
