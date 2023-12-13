@@ -20,7 +20,7 @@ class AlarmBatteryLowSkill
 public:
     AlarmBatteryLowSkill(std::string name );
 
-    bool start();
+    bool start(int argc, char * argv[]);
     static void spin(std::shared_ptr<rclcpp::Node> node);
     void request_ack( [[maybe_unused]] const std::shared_ptr<bt_interfaces::srv::RequestAck::Request> request,
           std::shared_ptr<bt_interfaces::srv::RequestAck::Response>      response);
