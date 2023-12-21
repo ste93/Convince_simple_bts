@@ -41,6 +41,7 @@ protected:
     rclcpp::Client<bt_interfaces::srv::SendStop>::SharedPtr m_clientStop;
     string m_topicName;
     string m_name;
+    string m_suffixMonitor;
     int requestStatus();
     std::mutex m_requestMutex;
     mutable int8_t m_bt_request; // mutable because status() is const

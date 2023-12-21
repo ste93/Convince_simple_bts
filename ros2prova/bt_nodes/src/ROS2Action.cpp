@@ -46,8 +46,9 @@ NodeStatus ROS2Action::tick()
 PortsList ROS2Action::providedPorts()
 {
     return { InputPort<std::string>("nodeName"), 
-             InputPort<std::string>("topicName") , 
-             InputPort<std::string>("interface") };
+             InputPort<std::string>("topicName"), 
+             InputPort<std::string>("interface"),
+             InputPort<std::string>("suffixMonitor")  };
 }
 
 void ROS2Action::halt()

@@ -40,7 +40,8 @@ PortsList ROS2Condition::providedPorts()
 {
     return { InputPort<std::string>("nodeName"),
              InputPort<std::string>("topicName"),
-             InputPort<std::string>("interface") };
+             InputPort<std::string>("interface"),
+             InputPort<std::string>("suffixMonitor") };
 }
 
 

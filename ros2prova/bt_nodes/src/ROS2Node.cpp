@@ -39,10 +39,10 @@ bool ROS2Node::init()
     }
 
     m_node = rclcpp::Node::make_shared(m_name);
-    m_client = m_node->create_client<bt_interfaces::srv::RequestAck>(m_topicName + "/RequestAck");
-    m_clientStart = m_node->create_client<bt_interfaces::srv::SendStart>(m_topicName + "/SendStart");
-    m_clientStop = m_node->create_client<bt_interfaces::srv::SendStop>(m_topicName + "/SendStop");
-    RCLCPP_INFO_STREAM(rclcpp::get_logger("rclcpp"),"name " << m_name << "topicname " << m_topicName);
+    m_client = m_node->create_client<bt_interfaces::srv::RequestAck>(m_topicName + "/RequestAck" + m_suffixMonitor);
+    m_clientStart = m_node->create_client<bt_interfaces::srv::SendStart>(m_topicName + "/SendStart" + m_suffixMonitor);
+    m_clientStop = m_node->create_client<bt_interfaces::srv::SendStop>(m_topicName + "/SendStop" + m_suffixMonitor);
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("rclcpp"),"name " << m_name << "topicname " << m_topicName << "suffixmonitor " << m_suffixMonitor);
     
     return true;
 
