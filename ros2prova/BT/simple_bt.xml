@@ -22,7 +22,6 @@
             <input_port name="interface" type="std::string"/>
             <input_port name="nodeName" type="std::string"/>
             <input_port name="topicName" type="std::string"/>
-            <input_port name="topicName" type="std::string"/>
             <input_port name="suffixMonitor" type="std::string"/>
         </Condition>
     </TreeNodesModel>
