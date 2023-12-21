@@ -28,6 +28,11 @@ ROS2Action::ROS2Action(const string name, const NodeConfiguration& config) :
     {
         m_topicName = topic_name.value();
     }
+    Optional<std::string> suffix_monitor = getInput<std::string>("suffixMonitor");
+    if (suffix_monitor)
+    {
+        m_suffixMonitor = suffix_monitor.value();
+    }
     Optional<std::string> interface = getInput<std::string>("interface");
     bool ok = init();
 
