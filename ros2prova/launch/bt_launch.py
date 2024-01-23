@@ -6,8 +6,8 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='alarm_battery_low_skill',
-            executable='alarm_battery_low_skill'
-            output='screen',
+            executable='alarm_battery_low_skill',
+            output='screen'
             # arguments=['--ros-args', '--log-level', 'debug']
         ),
         Node(
