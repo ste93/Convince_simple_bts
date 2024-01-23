@@ -73,6 +73,9 @@ services:
               source /home/user1/convince_simple_bts/ros2prova/battery_level_skill/install/setup.bash && \
               source /home/user1/convince_simple_bts/ros2prova/bt_executable/install/setup.bash && \
               ros2 launch /home/user1/convince_simple_bts/ros2prova/launch/bt_launch.py"
+    ports:
+      - "1666:1666"
+      - "1667:1667"
 
 
   ros2oracle:
@@ -89,4 +92,5 @@ services:
               source /home/user1/convince_simple_bts/ros2prova/battery_drainer_skill/install/setup.bash && \
               source /home/user1/convince_simple_bts/ros2prova/battery_level_skill/install/setup.bash && \
               source /home/user1/convince_simple_bts/ros2prova/bt_executable/install/setup.bash && \
+              cd /home/user1/convince_simple_bts/ROS2MonitoringFiles && \
               python3 /home/user1/ROSMonitoring/oracle/TLOracle/oracle.py --online --discrete --property battery"
