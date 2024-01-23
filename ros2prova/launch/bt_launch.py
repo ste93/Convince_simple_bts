@@ -17,24 +17,19 @@ def generate_launch_description():
             arguments=['--ros-args', '--log-level', 'debug']
         ),
         Node(
-            package='battery_drainer_component',
-            executable='battery_drainer_component',
-            arguments=[('__log_level:=debug')]
-        ),
-        Node(
             package='battery_level_skill',
             executable='battery_level_skill',
-            arguments=[('__log_level:=debug')]
+            arguments=['--ros-args', '--log-level', 'debug']
         ),
         Node(
             package='battery_drainer_component',
             executable='battery_drainer_component',
-            arguments=[('__log_level:=debug')]
+            arguments=['--ros-args', '--log-level', 'debug']
         ),
         Node(
             package='bt_executable',
             executable='bt_executable',
-            arguments=[ '/home/user1/convince_simple_bts/ros2prova/BT/simple_bt.xml',('__log_level:=debug')]
+            arguments=[ './BT/simple_bt.xml','--ros-args', '--log-level', 'debug']
         )
     ])
 
