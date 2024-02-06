@@ -5,17 +5,17 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='stop_services_skill',
-            executable='stop_services_skill',
+            package='check_network_skill',
+            executable='check_network_skill',
             output='screen',
             arguments=['--ros-args','--log-level', 'debug']
         ),
-        Node(
-            package='start_services_skill',
-            executable='start_services_skill',
-            output='screen',
-            arguments=['--ros-args','--log-level', 'debug']
-        ),
+        # Node(
+        #     package='start_services_skill',
+        #     executable='start_services_skill',
+        #     output='screen',
+        #     arguments=['--ros-args','--log-level', 'debug']
+        # ),
         # Node(
         #     package='alarm_battery_low_skill',
         #     executable='alarm_battery_low_skill',

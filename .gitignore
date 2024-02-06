@@ -9,3 +9,8 @@ CMakeLists.txt.user*
 /ros2_example/
 .vscode
 .devcontainer
+ros2prova/**/build
+ros2prova/**/install
+ros2prova/**/log
+ros2prova/lifecycle_py/*
+ros2prova/stop_start_component

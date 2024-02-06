@@ -1,0 +1,22 @@
+<scxml 
+  initial="idle" 
+  version="1.0" 
+  name="StopServicesSkillSM"
+  datamodel="cplusplus:StopServicesDataModel:StopServicesDataModel.h"
+  xmlns="http://www.w3.org/2005/07/scxml">
+
+    <state id="stop">
+        <onentry>
+            <script>
+                stop();
+            </script>
+        </onentry>
+        <transition event="CMD_OK" target="idle"/>
+    </state>
+
+    <state id="idle">
+        <transition event="CMD_START" target="stop" />
+    </state>
+    
+</scxml>
+

@@ -3,11 +3,14 @@
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
         <ReactiveSequence>
-            <ReactiveFallback>
+            <!-- <ReactiveFallback>
                 <Condition ID="ROS2Condition" interface="service" name="BatteryLevel" nodeName="BatteryLevelSkill" topicName="/BatteryLevelSkill"/>
                 <Action ID="ROS2Action" interface="service" name="Alarm" nodeName="AlarmBatteryLowSkill" topicName="/AlarmBatteryLowSkill"/>
-            </ReactiveFallback>
-            <Action ID="ROS2Action" interface="service" name="BatteryDrainer" nodeName="BatteryDrainerSkill" topicName="/BatteryDrainerSkill"/>
+            </ReactiveFallback> -->
+            <!-- <Action ID="ROS2Action" interface="service" name="BatteryDrainer" nodeName="BatteryDrainerSkill" topicName="/BatteryDrainerSkill"/> -->
+            <Action ID="ROS2Action" interface="service" name="CheckNetwork" nodeName="CheckNetworkSkill" topicName="/CheckNetworkSkill" />
+            <!-- <Action ID="ROS2Action" interface="service" name="StartServices" nodeName="StartServicesSkill" topicName="/StartServicesSkill" />
+            <Action ID="ROS2Action" interface="service" name="StopServices" nodeName="StopServicesSkill" topicName="/StopServicesSkill" /> -->
         </ReactiveSequence>
     </BehaviorTree>
     <!-- ////////// -->
