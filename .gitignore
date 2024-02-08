@@ -1,7 +1,9 @@
 *~
 *.bak
-/build*/
+build*/
 *kdev*
+install/
+log/
 *.orig
 /compile_commands.json
 /.clangd/
