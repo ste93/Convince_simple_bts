@@ -56,6 +56,7 @@ private:
     
     //host can be either the name of the resource (e.g. r1-base) or its ip addr.
     bool isNetworkConnected(const std::string& host);
+    std::string exec(const char* cmd);
 
     // Calculating the Check Sum
     // TODO: understand what is this
