@@ -30,8 +30,8 @@ bool StartServicesDataModel::setup(const QVariantMap &initialDataValues)
     }
 
     m_node = rclcpp::Node::make_shared(m_name);
-    m_client_get_state = m_node->create_client<lifecycle_msgs::srv::GetState>("/lc_talker/get_state");
-    m_client_change_state = m_node->create_client<lifecycle_msgs::srv::ChangeState>("/lc_talker/change_state");
+    m_client_get_state = m_node->create_client<lifecycle_msgs::srv::GetState>("/dr_spaam_ros_node/get_state");
+    m_client_change_state = m_node->create_client<lifecycle_msgs::srv::ChangeState>("/dr_spaam_ros_node/change_state");
 
     RCLCPP_DEBUG(m_node->get_logger(), "StartServicesDataModel::start");
     std::cout << "StartServicesDataModel::start";
