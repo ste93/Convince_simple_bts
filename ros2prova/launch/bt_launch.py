@@ -26,7 +26,7 @@ def generate_launch_description():
         Node(
             package='bt_executable',
             executable='bt_executable',
-            arguments=[ './BT/simple_bt.xml']
+            arguments=[ './BT/simple_bt_no_monitoring.xml']
         )
     ])
 
